@@ -3,212 +3,352 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SD WAVES</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for Icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-    <style>   
-        /* Background Animation */
+    <title>SD WAVES - Live Sound & PA Rentals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
+    <style>
+        /* General Styling */
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: Arial, sans-serif;
+            color: white;
             margin: 0;
             padding: 0;
-            background: linear-gradient(-45deg,#1e3c72, #2a5298, #6b73ff);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            color: white;
+            background-color: #111; /* Dark background for contrast */
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Header Styling */
-        header {
-            animation: fadeIn 1.5s ease-in-out;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-        }
-        
-        header h1 {
-            font-size: 42px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-        
-        /* Navigation Styling */
-        nav ul {
-            list-style: none;
-            padding: 0;
-            text-align: center;
-            background: rgba(0, 0, 0, 0.8);
-            margin: 0;
-        }
-        nav ul li {
-            display: inline;
+        /* Navigation Bar */
+        nav {
+            background-color: rgba(255, 0, 0, 0.8); /* Red background */
             padding: 15px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1;
         }
-        nav ul li a {
+
+        nav a {
             color: white;
             text-decoration: none;
             padding: 10px 20px;
-            display: inline-block;
-            font-size: 18px;
-            transition: 0.3s;
+            margin: 0 15px;
+            font-weight: bold;
+            text-transform: uppercase;
         }
-        nav ul li a:hover {
-            background: rgba(255, 255, 255, 0.2);
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
             border-radius: 5px;
         }
 
-        /* Sections with Glassmorphism Effect */
-        section {
-            padding: 50px 20px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
+        /* Hero Section */
+        .hero {
+            background-image: url('your-image-url.jpg'); /* Replace with your background image */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            margin: 40px auto;
-            max-width: 800px;
-            animation: fadeIn 2s ease-in-out;
-            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Image Animation */
-        /* img {
-            animation: bounce 2s infinite;
-            display: block;
-            margin: 20px auto;
-            width: 300px;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
-        } */
-
-        /* Button Styling */
-        .btn {
-            display: inline-block;
-            background: linear-gradient(90deg, #ff512f, #dd2476);
             color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 30px;
-            font-size: 18px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .btn:hover {
-            background: linear-gradient(90deg, #dd2476, #ff512f);
-            transform: scale(1.1);
-        }
-
-        /* Footer with Animated Gradient */
-        footer {
-            background: linear-gradient(90deg, #4a4a7c, #12121c);
-            color: white;
-            text-align: center;
-            padding: 15px 0;
-            font-size: 13px;
             position: relative;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            animation: fadeIn 2s ease-in-out;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            z-index: -1;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            section {
-                padding: 30px 15px;
-                max-width: 90%;
-            }
-            img {
-                width: 250px;
-            }
-            header h1 {
-                font-size: 32px;
-            }
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Keyframes */
-        /* @keyframes fadeIn {
-            0% { opacity: 0; transform: scale(0.9); }
-            100% { opacity: 1; transform: scale(1); }
+        .hero p {
+            font-size: 1.5rem;
+            margin: 20px 0;
         }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        } */
+        .hero .button {
+            background-color: red;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        /* About Us Section */
+        .about {
+            padding: 60px 20px;
+            background-color: #222;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            margin-top: 20px;
+        }
+
+        /* Services Section */
+        .services {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 40px 20px;
+            background-color: #111;
+        }
+
+        .service-card {
+            background-color: rgba(255, 0, 0, 0.7);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            width: 250px;
+            margin: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: scale(1.05);
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 40px 20px;
+            background-color: #222;
+            text-align: center;
+        }
+
+        .pricing h2 {
+            font-size: 2.5rem;
+        }
+
+        .pricing ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .pricing li {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 60px 20px;
+            background-color: #111;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-size: 2.5rem;
+        }
+
+        .testimonial {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 60px 20px;
+            background-color: #222;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+        }
+
+        .contact form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact input,
+        .contact textarea {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        .contact input[type="submit"] {
+            background-color: red;
+            color: white;
+            cursor: pointer;
+        }
+
+        .contact input[type="submit"]:hover {
+            background-color: #ff3333;
+        }
+
+        /* Contact Buttons */
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .contact-buttons a {
+            background: linear-gradient(135deg, #FF6347, #D44638); /* Gradient background */
+            color: white;
+            padding: 16px 32px; /* Slightly larger padding */
+            font-size: 1.4rem; /* Larger text size */
+            text-decoration: none;
+            border-radius: 12px; /* More rounded corners */
+            text-align: center;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow effect */
+            transition: all 0.4s ease-in-out; /* Smooth transition */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Green button for phone */
+        .contact-buttons a.phone {
+            background: linear-gradient(135deg, #da0505, #aa1616);
+        }
+
+        /* Red button for email */
+        .contact-buttons a.email {
+            background: linear-gradient(135deg, #6050f0, #271e9c);
+        }
+
+        /* WhatsApp button */
+        .contact-buttons a.whatsapp {
+            background: linear-gradient(135deg, #1bd35f, #126839);
+        }
+
+        /* Hover Effects */
+        .contact-buttons a:hover {
+            transform: translateY(-6px); /* Lift effect on hover */
+            box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+            opacity: 0.9; /* Slight opacity change */
+        }
+
+        .contact-buttons a:active {
+            transform: translateY(2px); /* Slight press effect */
+            opacity: 1; /* Full opacity when clicked */
+        }
+
+        /* Adding an icon next to the text */
+        .contact-buttons a i {
+            margin-right: 8px; /* Space between icon and text */
+            font-size: 1.5rem; /* Icon size */
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>SD WAVES</h1>
-    </header>
-    
-    <!-- Navigation -->
+    <!-- Navigation Bar -->
     <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
     </nav>
 
-    <!-- Section 1 -->
-    <section id="about">
-        <h2>About SD WAVES</h2>
-        <img src="./assets/3.png" alt="About SD WAVES">
-        <p><strong>Professional Live Sound Engineering</strong></p>
-        <p><strong>High-Quality PA Systems for Rent</strong></p>
-        <p><strong>For Your:</strong></p>
-        <p>Private Parties • Weddings • Solo Gigs • Outdoor Events</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Welcome to SD WAVES</h1>
+            <p>Top-quality live sound and PA system rentals for all events.</p>
+            <a href="#contact" class="button">Book Now</a>
+        </div>
     </section>
 
-    <!-- Section 2 (Additional Services) -->
-    <section id="services">
-        <h2>Additional Services</h2>
-        <p><strong>Sound System Design</strong></p>
-        <p><strong>Sound Engineering for Concerts</strong></p>
-        <p><strong>Custom Audio Solutions</strong></p>
-        <p><strong>Event Coordination</strong></p>
+    <!-- About Us Section -->
+    <section class="about" id="about">
+        <h2>About Us</h2>
+        <p>we specialize in providing exceptional live sound engineering and high-quality PA system rentals. Whether it’s a small event or a large concert, we’ve got you covered!</p>
     </section>
-    
-    <img src="assets/3.png" alt="">
 
-    <!-- Section 3 (Contact) -->
-    <section id="contact">
-        <h2>Contact</h2>
-        
-        <a href="mailto:sethudilnuka@gmail.com" class="btn">
-            <i class="fas fa-envelope"></i> Email Me
-        </a>
-        <a href="https://wa.me/94767674211" class="btn">
-            <i class="fab fa-whatsapp"></i> WhatsApp
-        </a>
-        <a href="tel:+94767674211" class="btn">
-            <i class="fas fa-phone"></i> Call Now
-        </a>
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2>Our Services</h2>
+        <div class="service-card">
+            <h3>Live Sound Engineering</h3>
+            <p>Professional sound mixing for live events.</p>
+        </div>
+        <div class="service-card">
+            <h3>PA System Rentals</h3>
+            <p>Rent top-of-the-line PA systems for any event size.</p>
+        </div>
+        <div class="service-card">
+            <h3>Event Audio Solutions</h3>
+            <p>Customized audio solutions for all types of events.</p>
+        </div>
+    </section>
 
-        <p><strong>Sethum Dilnuka</strong></p>
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <h2>What Clients Say</h2>
+        <p class="testimonial">"Amazing sound quality and professional service!"</p>
+        <p class="testimonial">"Great setup and smooth performance at our event!"</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <form action="your-action-url" method="post">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="event-details" placeholder="Event Details (Date, Location, Services Needed)" required></textarea>
+            <input type="submit" value="Submit Booking">
+        </form>
+
+        <!-- Contact Buttons -->
+        <div class="contact-buttons">
+            <a href="mailto:Sethudilnuka@gmail.com" class="email">
+                <i class="fas fa-envelope"></i> Email Us
+            </a>
+            <a href="tel:+94767674211" class="phone">
+                <i class="fas fa-phone-alt"></i> Call Us
+            </a>
+            <a href="https://wa.me/94767674211" target="_blank" class="whatsapp">
+                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        &copy; 2025 SD WAVES
+        &copy; 2025 SD WAVES. All Rights Reserved.
     </footer>
 
 </body>
 </html>
-
