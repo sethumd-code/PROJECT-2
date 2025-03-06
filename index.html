@@ -41,11 +41,19 @@
             border-radius: 5px;
         }
 
+        /* Subtle Gradient Animation */
+        @keyframes gradientBackground {
+            0% { background: rgba(0, 0, 0, 0.7), rgba(255, 0, 0, 0.7); }
+            50% { background: rgba(255, 0, 0, 0.8), rgba(0, 0, 0, 0.7); }
+            100% { background: rgba(0, 0, 0, 0.7), rgba(255, 0, 0, 0.7); }
+        }
+
         /* Hero Section */
         .hero {
-            background-image: url('assets/11.png'); /* Replace with your background image */
+            background-image: url('assets/12.jpg'); /* Replace with your background image */
             background-size: cover;
-            background-position: center;
+            background-attachment: fixed; /* Parallax effect */
+            background-position: center center;
             height: 100vh;
             display: flex;
             align-items: center;
@@ -53,6 +61,19 @@
             text-align: center;
             color: white;
             position: relative;
+            animation: gradientBackground 10s ease infinite; /* Gradient animation */
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.toptal.com/designers/subtlepatterns/patterns/noise.png');
+            opacity: 0.1; /* Subtle noise effect */
+            z-index: -1;
         }
 
         .hero-overlay {
@@ -276,6 +297,10 @@
                 padding: 10px;
             }
 
+            .hero {
+                background-position: center top; /* Adjust background to show the top part of the image */
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -313,6 +338,10 @@
         }
 
         @media (max-width: 480px) {
+            .hero {
+                background-position: center top; /* Adjust for small screens */
+            }
+
             .hero h1 {
                 font-size: 2rem;
             }
@@ -326,6 +355,13 @@
                 padding: 10px 20px;
             }
         }
+        /* Name Section */
+        .Name {
+            font-size: 0.7rem;
+            padding: 20px 20px;
+            background-color: #222;
+            text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -334,7 +370,6 @@
     <nav>
         <a href="#home">Home</a>
         <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
         <a href="#testimonials">Testimonials</a>
         <a href="#contact">Contact</a>
     </nav>
@@ -401,6 +436,11 @@
                 <i class="fab fa-whatsapp"></i> Chat on WhatsApp
             </a>
         </div>
+        <!-- Name Section -->
+        <section class="Name" id="Name">
+        <p>Sethum Dilnuka</p>
+        <p>31/2 Sri Sumedha road, Galle.</p>
+
     </section>
 
     <!-- Footer -->
